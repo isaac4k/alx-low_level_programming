@@ -1,15 +1,15 @@
 #include "main.h"
 /**
- * _isalpha- check if the given ASCII code  is a letter, lowercase or uppercase
+ * _isalpha - a function which checks a char is alpha or not
  * @c: a character in ASCII code
- *
- * Return: Always 0.
+ * Return: 1 if @c is alpha 0 if not
  */
 int _isalpha(int c)
 {
-  for ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-  {
-	  return (1);
-  }
-  return (0);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	{
+		return (1);
+	}
+	return (0);
 }
+
