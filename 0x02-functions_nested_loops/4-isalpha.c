@@ -5,9 +5,9 @@
  *
  * Return: Always 0.
  */
-int _isalpha(int c);
+int _isalpha(int c)
 {
-  for (c >= 65 $$ c <=z 90) || ( c >= 97 && c<= 120); 
+  for ((c >= 65 && c <= 90) || ( c >= 97 && c <= 122)) 
   {
 	  return (1);
   }
