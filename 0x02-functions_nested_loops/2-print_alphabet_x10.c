@@ -1,6 +1,8 @@
 #include "main.h"
-/**alphabet_x10 -check the code .
- * return: Always 0.*/
+/**
+ * print_alphabet_x10 -check the code .
+ * Return: Always 0.
+ */
 void print_alphabet_x10(void)
 {
     char a;
@@ -8,7 +10,7 @@ void print_alphabet_x10(void)
 
     a = 'a';
     i = 1;
-    while(i <= 10)
+    while (i <= 10)
     {
         while(a <= 'z')
         {
@@ -16,5 +18,7 @@ void print_alphabet_x10(void)
         a++;   
         }
         i++;
+        a = 'a';
+        _putchar('\n');
     }
 }
