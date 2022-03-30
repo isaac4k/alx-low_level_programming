@@ -13,7 +13,7 @@ int primenumber(int n, int c)
 		return (1);
 	if (n % c == 0)
 		return (0);
-	return primenumber(n, c + 1);
+	return (primenumber(n, c + 1));
 }
 
 /**
