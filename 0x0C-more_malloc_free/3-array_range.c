@@ -1,26 +1,28 @@
-#include "holberton.h"
-#include <stdlib.h>
+#include "main.h"
+#include "stdlib.h"
+#include "stdio.h"
 /**
- * array_range - A function that creates an array of integers.
- *
- * @min: min value.
- * @max: max value.
- *
- * Return: NULL if malloc fails ,otherwise Array-> a pointer to the
- * result array
+ * array_range - create an array contain element in a range
+ * @min: start of the array
+ * @max: the maximum number of the array element
+ * Return: a pointer to integer
  */
-
 int *array_range(int min, int max)
 {
-	int i = 0;
-	int *Array = NULL;
+	unsigned int len;
+	int i, j = 0;
+	int *p;
 
+	len = max - min + 1;
 	if (min > max)
 		return (NULL);
-	Array = malloc((max - min + 1) * sizeof(int));
-	if (Array == NULL)
+	p = (int *)malloc(len * sizeof(int));
+	if (p == NULL)
 		return (NULL);
-	while (min <= max)
-		Array[i++] = min++;
-	return (Array);
+	for (i = min; i <= max; i++)
+	{
+		p[j] = i;
+		j++;
+	}
+	return (p);
 }

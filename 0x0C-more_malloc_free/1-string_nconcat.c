@@ -1,58 +1,39 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
-*_strlen - function that that returns the length of a string.
-*
-*@s: pointer of char type.
-*Return: - The length of a string.
-*/
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-/**
- * string_nconcat - A function that concatenates two strings.
- *
- * @s1: Pointer to the string of the first part.
- * @s2: Pointer to the string of the second part.
- * @n: Number of bytes to be copied from s2
- *
- * Return: Pointer to the resulted string and NULL if malloc fails.
- */
+ * *string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: limit of s2
+ * Return: pointer to new space in memory or null
+ **/
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int l1, l2;
-	unsigned int size, i, index = 0;
-	char *str = NULL;
+	char *strDup;
+	int i;
+	unsigned int j;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	l1 = _strlen(s1);
-	l2 = _strlen(s2);
-	if (n > l2)
-		n = l2;
-	size = l1 + n + 1;
-	str = malloc(size * sizeof(char));
-	if (str == NULL)
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	strDup = malloc(sizeof(char) * (i + n + 1));
+	if (strDup == NULL)
 		return (NULL);
-	for (i = 0; i < l1; i++)
+	i = j = 0;
+	while (s1[i] != '\0')
 	{
-		str[index] = s1[i];
-		index++;
+		strDup[i] = s1[i];
+		i++;
 	}
-	for (i = 0; i < n; i++)
+	while (j < n && s2[j] != '\0')
 	{
-		str[index] = s2[i];
-		index++;
+		strDup[i] = s2[j];
+		i++, j++;
 	}
-	str[index] = '\0';
-	return (str);
+	strDup[i] = '\0';
+	return (strDup);
 }
