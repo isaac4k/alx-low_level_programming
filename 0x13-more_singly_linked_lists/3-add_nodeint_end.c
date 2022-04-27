@@ -1,50 +1,34 @@
 #include "lists.h"
-listint_t *create_node(const int n);
-
+#include <stdlib.h>
 /**
- * add_nodeint_end - Adds a node at the end of a list
- * @head: Pointer to the beginning of a list
- * @n: number to add to the node
- * Return: A pointer to the beginning of the list
+ * add_nodeint_end - add an int at the tail
+ * @head: the starting of linked list
+ * @n: the value append
+ * Return: the list we append
  */
+
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	listint_t *new_node;
-	listint_t *tmp;
+	listint_t *new;
+	listint_t *traverse;
 
-	tmp = *head;
-	if (head == NULL)
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+	{
 		return (NULL);
-
-	new_node = create_node(n);
-	if (new_node == NULL)
-		return (NULL);
+	}
+	new->n = n;
+	new->next = NULL;
 	if (*head == NULL)
 	{
-		*head = new_node;
+		*head = new;
 		return (*head);
 	}
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new_node;
-
+	traverse = *head;
+	while (traverse->next != NULL)
+	{
+		traverse = traverse->next;
+	}
+	traverse->next = new;
 	return (*head);
-}
-
-/**
- * create_node - Creates a node
- * @n: Value for the node
- * Return: A pointer to the beginning of the list
- */
-listint_t *create_node(const int n)
-{
-	listint_t *new_node;
-
-	new_node = malloc(sizeof(listint_t));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->n = n;
-	new_node->next = NULL;
-
-	return (new_node);
 }

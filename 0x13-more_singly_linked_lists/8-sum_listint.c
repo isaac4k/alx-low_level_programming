@@ -1,20 +1,21 @@
 #include "lists.h"
 /**
- * sum_listint - Calculates the sum of the integers in a list
- * @head: Pointer to the first element of a list
- * Return: An integer representing the sum of values
+ * sum_listint - the sum all the element of linked list
+ * @head: the head of linked list
+ * Return: return the sum of all node
  */
+
 int sum_listint(listint_t *head)
 {
 	int sum;
+	listint_t *traverse;
 
+	traverse = head;
 	sum = 0;
-	if (head == NULL)
-		return (0);
-	while (head != NULL)
+	while (traverse != NULL)
 	{
-		sum = sum + head->n;
-		head = head->next;
+		sum = sum + traverse->n;
+		traverse = traverse->next;
 	}
 	return (sum);
 }

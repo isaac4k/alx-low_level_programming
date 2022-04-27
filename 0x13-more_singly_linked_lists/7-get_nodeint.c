@@ -1,19 +1,24 @@
 #include "lists.h"
 /**
- * get_nodeint_at_index - Returns the node at an index
- * @head: Pointer to the first element of the list
- * @index: Desired node at this position
- * Return: Pointer to the desired node
+ * get_nodeint_at_index - a function to access ith element
+ * @head: the head of the linked linst
+ * @index: the index we need to access element
+ * Return: a node at ith position
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	unsigned int c;
+	listint_t *traverse;
+	unsigned int i = 0;
 
-	for (c = 0; c < index ; c++)
+	traverse = head;
+	while (traverse != NULL)
 	{
-		if (head == NULL)
-			return (NULL);
-		head = head->next;
+		if (i == index)
+		{
+			return (traverse);
+		}
+		traverse = traverse->next;
+		i++;
 	}
-	return (head);
+	return (NULL);
 }
